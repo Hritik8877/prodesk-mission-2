@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💸 cash·flow – salary & expense tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="dashboard">
+  <h1><i class="fas fa-chart-line"></i> cash·flow <span>salary & expenses</span></h1>
+
+
+  <div class="row-salary">
+    <div class="salary-header">
+      <span class="salary-label"><i class="fas fa-coins"></i>total salary</span>
+      <div class="salary-input-group">
+        <input type="number" id="salaryInput" placeholder="e.g. 4500" step="any" min="0">
+        <span class="salary-display" id="salaryDisplay">0</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-panel">
+
+    <div class="card">
+      <h3><i class="fas fa-receipt"></i> add expense</h3>
+      <div class="expense-form">
+        <div class="form-row">
+          <label>description</label>
+          <input type="text" id="expenseNameInput" placeholder="groceries, rent, ...">
+        </div>
+        <div class="form-row">
+          <label>amount ($)</label>
+          <input type="number" id="expenseAmountInput" placeholder="0" step="any" min="0">
+        </div>
+        <button class="btn-add" id="addExpenseBtn"><i class="fas fa-plus-circle"></i>add expense</button>
+      </div>
+
+      <div class="expense-list-wrapper">
+        <h4><i class="fas fa-list-ul"></i> expense history</h4>
+        <div id="expenseListContainer" class="expense-list"></div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="card chart-container">
+        <h3><i class="fas fa-chart-pie"></i> balance vs expenses</h3>
+        <canvas id="balancePieChart" width="300" height="180"></canvas>
+        <div class="chart-legend">
+          <span><span class="dot remaining-dot"></span> remaining</span>
+          <span><span class="dot expenses-dot"></span> expenses</span>
+        </div>
+      </div>
+      <div class="balance-summary">
+        <span class="balance-item"><i class="fas fa-wallet"></i> remaining balance</span>
+        <span class="balance-number" id="remainingBalanceDisplay">0</span>
+      </div>
+    </div>
+  </div>
+  <footer>⚡ data survives refresh · click trash to delete</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
